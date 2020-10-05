@@ -29,7 +29,7 @@ function Get-Products {
 function Pack-Products {
 	param (
 	[Param(Mandatory=$true)]
-	$productsObject,
+	[PsObject] $productsObject,
 	[Param]
 	[string]$nugetOutputPath = "./nupkgs"
 	)
