@@ -3,5 +3,5 @@
 	[
 		{ "Name": "Library A", "Path": "./src/program-a/ProgramA.csproj", "Version": "1.0.0", "NuGetPack": true },
 		{ "Name": "Library B", "Path": "./src/program-b/ProgramB.csproj", "Version": "1.0.1", "NuGetPack": true }
-	],
+	]
 }

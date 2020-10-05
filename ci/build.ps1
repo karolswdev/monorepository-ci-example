@@ -36,13 +36,17 @@ function Pack-Products {
 	
 	Write-Host "Packing on $productsObject"
 	
-	ForEach ($product in $productsObject) {
+	ForEach ($product in $productsObject.Products) {
+		$productName = $product.Name
+		$productPath = $product.Path
+		$productVersion = $product.Version
+	
 		if($product.NuGetPack) {
 			if($isReleaseVersion) {
-				Write-Host "Packing product: $product.Name in $product.Path with version $product.Version for configuration: $build_configuration"
+				Write-Host "Packing product: $productName in $productPath with version $productVersion for configuration: $build_configuration"
 				dotnet pack $product.Path --output $nugetOutputPath -p:Version=$product.Version -p:PackageVersion=$product.Version -p:Configuration=$build_configuration
 			} else {
-				Write-Host "Packing product: $product.Name in $product.Path with version $product.Version for configuration: $build_configuration"
+				Write-Host "Packing product: $productName in $productPath with version $productVersion for configuration: $build_configuration"
 				dotnet pack $product.Path --output $nugetOutputPath -p:Version="$product.Version$prereleaseSuffix" -p:PackageVersion="$product.Version$prereleaseSuffix" -p:Configuration=$build_configuration
 			}
 		}
@@ -58,7 +62,7 @@ Push-Location ./src
 	 if (Test-Path ./nupkgs) {
 		 remove-item -path ./nupkgs -recurse
 	 }
-	dotnet build -p:Configuration=$build_configuration -p:Version=$version
+	#dotnet build -p:Configuration=$build_configuration -p:Version=$version
 Pop-Location
 
 $products = Get-Products
