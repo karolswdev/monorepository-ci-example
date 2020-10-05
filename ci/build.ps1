@@ -28,9 +28,7 @@ function Get-Products {
 # ProductObject comes from Get-Products
 function Pack-Products {
 	param (
-	[Param(Mandatory=$true)]
 	[PsObject] $productsObject,
-	[Param]
 	[string]$nugetOutputPath = "./nupkgs"
 	)
 	
