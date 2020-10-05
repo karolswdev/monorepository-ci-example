@@ -34,7 +34,7 @@ function Pack-Products {
 	
 	$build_configuration = $env:BCT_BUILD_CONFIGURATION
 	
-	ForEach ($product in $productsObject.Products) {
+	ForEach ($product in $productsObject.PsObject.Properties) {
 		if($product.NuGetPack) {
 			if($isReleaseVersion) {
 				Write-Host "Packing product: $product.Name in $product.Path with version $product.Version for configuration: $build_configuration"
