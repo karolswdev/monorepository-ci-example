@@ -32,6 +32,8 @@ if (-not $isReleaseVersion) {
     $Product_Version = "$Product_Version-$prefix$buildTime-$branchHash"
 }
 
+$PrereleaseSuffix = "-$prefix$buildTime-$branchHash"
+
 $isPublishing = Get-IsPublishing -isReleaseVersion:$isReleaseVersion -branchName:$branchName
 
 #for non-local builds set git configuration author and email
