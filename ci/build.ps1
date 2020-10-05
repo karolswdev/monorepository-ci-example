@@ -1,27 +1,16 @@
 #!/usr/bin/env pwsh
 
-#Instructions:
-#Run from root directory
-
 $version = $env:BCT_PRODUCT_VERSION 
 $build_configuration = $env:BCT_BUILD_CONFIGURATION
-
-Push-Location ./src
-	 if (Test-Path ./nupkgs) {
-		 remove-item -path ./nupkgs -recurse
-	 }
-	dotnet msbuild -t:Restore,Build -p:Configuration=$build_configuration -p:Version=$version
-Pop-Location
-
-$products = Get-Products
-Pack-Products $products
-
+$isPublishing = $([System.Convert]::ToBoolean($env:BCT_IS_PUBLISHING))
+$isReleaseVersion = $([System.Convert]::ToBoolean($env:BCT_IS_RELEASE_VERSION))
+$prereleaseSuffix = $env:BCT_PRERELEASE_SUFFIX
 
 
 # Mono repository functions
 function Get-Products {
 	param (
-    [string] $productFilePath = "./configmap/products.json"
+    [string] $productFilePath = "./src/products.json"
 	)
 			
 	$productFileContent = Get-Content -Path $productFilePath
@@ -49,10 +38,32 @@ function Pack-Products {
 	
 	ForEach ($product in $productsObject.Products) {
 		if($product.NuGetPack) {
-			dotnet pack $product.Path --output $nugetOutputPath -p:Version=$product.Version -p:PackageVersion=$product.Version -p:Configuration=$build_configuration
+			if($isReleaseVersion) {
+				dotnet pack $product.Path --output $nugetOutputPath -p:Version=$product.Version -p:PackageVersion=$product.Version -p:Configuration=$build_configuration
+			} else {
+				dotnet pack $product.Path --output $nugetOutputPath -p:Version="$product.Version$prereleaseSuffix" -p:PackageVersion="$product.Version$prereleaseSuffix" -p:Configuration=$build_configuration
+			}
 		}
 	}
 }
+
+#Instructions:
+#Run from root directory
+
+
+
+Push-Location ./src
+	 if (Test-Path ./nupkgs) {
+		 remove-item -path ./nupkgs -recurse
+	 }
+	dotnet msbuild -t:Restore,Build -p:Configuration=$build_configuration -p:Version=$version
+Pop-Location
+
+$products = Get-Products
+Pack-Products $products
+
+
+
 
 
 

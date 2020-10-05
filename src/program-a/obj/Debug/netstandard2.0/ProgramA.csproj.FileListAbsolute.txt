@@ -1,0 +1,9 @@
+D:\Development\TerumoBCT\monorepo-example\src\program-a\bin\Debug\netstandard2.0\ProgramA.deps.json
+D:\Development\TerumoBCT\monorepo-example\src\program-a\bin\Debug\netstandard2.0\ProgramA.dll
+D:\Development\TerumoBCT\monorepo-example\src\program-a\bin\Debug\netstandard2.0\ProgramA.pdb
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.csprojAssemblyReference.cache
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.csproj.CoreCompileInputs.cache
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.AssemblyInfoInputs.cache
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.AssemblyInfo.cs
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.dll
+D:\Development\TerumoBCT\monorepo-example\src\program-a\obj\Debug\netstandard2.0\ProgramA.pdb
