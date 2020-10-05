@@ -56,7 +56,7 @@ Push-Location ./src
 	 if (Test-Path ./nupkgs) {
 		 remove-item -path ./nupkgs -recurse
 	 }
-	dotnet msbuild -t:Restore,Build -p:Configuration=$build_configuration -p:Version=$version
+	dotnet build -p:Configuration=$build_configuration -p:Version=$version
 Pop-Location
 
 $products = Get-Products
