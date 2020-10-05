@@ -7,7 +7,7 @@ param (
 $ErrorActionPreference = 'stop'
 
 # compute path to library from environment variable local build
-$toolPath = "../buildtools"
+$toolPath = "./"
 # include build tools library ('source' the file)
 # we now have access to all the functions in library
 . $toolPath/workflow-utils.ps1 -expectMajorVersion:1 -expectMinorVersion:2
