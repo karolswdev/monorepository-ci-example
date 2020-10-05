@@ -62,11 +62,13 @@ Push-Location ./src
 	 if (Test-Path ./nupkgs) {
 		 remove-item -path ./nupkgs -recurse
 	 }
-	#dotnet build -p:Configuration=$build_configuration -p:Version=$version
+	dotnet build -p:Configuration=$build_configuration -p:Version=$version --nologo
+	
+	$products = Get-Products "./products.json"
+	Pack-Products $products
 Pop-Location
 
-$products = Get-Products
-Pack-Products $products
+
 
 
 

@@ -1,0 +1,2 @@
+D:\Development\TerumoBCT\monorepo-example\src\program-b\obj\Release\netstandard2.0\ProgramB.csprojAssemblyReference.cache
+D:\Development\TerumoBCT\monorepo-example\src\program-b\obj\Release\netstandard2.0\ProgramB.csproj.CoreCompileInputs.cache
