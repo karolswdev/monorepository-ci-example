@@ -44,10 +44,10 @@ function Pack-Products {
 		if($product.NuGetPack) {
 			if($isReleaseVersion) {
 				Write-Host "Packing product: $productName in $productPath with version $productVersion for configuration: $build_configuration"
-				dotnet pack $product.Path --output $nugetOutputPath -p:Version=$product.Version -p:PackageVersion=$product.Version -p:Configuration=$build_configuration
+				dotnet pack $product.Path --output $nugetOutputPath -p:Version=$product.Version -p:PackageVersion=$product.Version -p:Configuration=$build_configuration --nologo
 			} else {
 				Write-Host "Packing product: $productName in $productPath with version $productVersion for configuration: $build_configuration"
-				dotnet pack $product.Path --output $nugetOutputPath -p:Version="$productVersion$prereleaseSuffix" -p:PackageVersion="$productVersion$prereleaseSuffix" -p:Configuration=$build_configuration
+				dotnet pack $product.Path --output $nugetOutputPath -p:Version="$productVersion$prereleaseSuffix" -p:PackageVersion="$productVersion$prereleaseSuffix" -p:Configuration=$build_configuration --nologo
 			}
 		}
 	}
