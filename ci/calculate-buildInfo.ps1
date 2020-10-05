@@ -51,4 +51,4 @@ Set-BuildEnvironmentVariable BCT_IS_RELEASE_VERSION $isReleaseVersion
 Set-BuildEnvironmentVariable BCT_IS_PUBLISHING $isPublishing
 Set-BuildEnvironmentVariable BCT_GIT_SHA $branchHash
 #MONO
-Set-BuildEnvironmentVariable BCT_PRERELEASE_SUFFIX = $PrereleaseSuffix
+Set-BuildEnvironmentVariable BCT_PRERELEASE_SUFFIX $PrereleaseSuffix
